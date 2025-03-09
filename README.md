@@ -16,7 +16,7 @@
 2. 将Walkman连接至Windows电脑
 3. 验证adb可用性，执行`adb shell getprop ro.boot.slot_suffix`
 4. 记录输出结果（应为"_a"或"_b"）
-5. 下载uuu工具[点此获取](https://github.com/Sikz1218/Sony_android_walkman_A105/raw/refs/heads/main/uuu.exe)
+5. 前往[releases](https://github.com/Sikz1218/Sony_android_walkman_A105/raw/refs/heads/main/uuu.exe)页面下载相关文件
 6. 将`uuu.exe`放入工作目录，执行`uuu`验证工具可用性
 
 命令输出结果将作为执行`uuu`命令时的分区后缀参考
@@ -45,16 +45,10 @@
 
 ### 内核
 
-本仓库内核源码已添加以下补丁：
-- KernelSU支持
-- 低频CPU支持
-- 节能型CPU调频策略
-使用随附的`walkman.config`作为编译配置
-
-预编译内核[点此下载](https://github.com/notcbw/2019_android_walkman/releases/tag/v1)。进入fastboot后执行（A100机型需修改文件名）：
-- Mac/Linux: `fastboot flash boot boot-zx500.img`
-- Windows(_a): `uuu FB: flash boot_a boot-zx500.img`
-- Windows(_b): `uuu FB: flash boot_b boot-zx500.img`
+安装apatch后修补boot.img，将修补好的boot文件移动至工作目录，进入fastboot后执行：
+- Mac/Linux: `fastboot flash boot 你修补的boot文件名.img`
+- Windows(_a): `uuu FB: flash boot_a 你修补的boot文件名.img`
+- Windows(_b): `uuu FB: flash boot_b 你修补的boot文件名.img`
 
 ## 技术发现
 
