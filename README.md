@@ -6,7 +6,7 @@
 
 ### <ins>免责声明</ins>
 
-以下步骤仅在Mac设备测试通过。若操作导致设备变砖/损坏，本人概不负责且不接受任何投诉。不提供终端用户技术支持，不教授adb安装或基础命令执行等入门知识。
+若操作导致设备变砖/损坏，本人概不负责且不接受任何投诉。不提供终端用户技术支持，不教授adb安装或基础命令执行等入门知识。
 
 ### <ins>Windows用户专备步骤</ins>:
 
@@ -16,7 +16,7 @@
 2. 将Walkman连接至Windows电脑
 3. 验证adb可用性，执行`adb shell getprop ro.boot.slot_suffix`
 4. 记录输出结果（应为"_a"或"_b"）
-5. 下载uuu工具[点此获取](https://github.com/nxp-imx/mfgtools/releases/download/uuu_1.5.21/uuu.exe)
+5. 下载uuu工具[点此获取](https://github.com/Sikz1218/Sony_android_walkman_A105/raw/refs/heads/main/uuu.exe)
 6. 将`uuu.exe`放入工作目录，执行`uuu`验证工具可用性
 
 命令输出结果将作为执行`uuu`命令时的分区后缀参考
