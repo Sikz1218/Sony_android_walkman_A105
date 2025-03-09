@@ -1,14 +1,14 @@
 # 2019款安卓Walkman设备技术文档
 
-## 操作指南
-
-本指南仅适用于已掌握基本终端命令、ADB或fastboot的高级用户。需预先安装Android Platform Tools (含ADB等工具)
-
-### <ins>免责声明</ins>
+## <ins>免责声明</ins>
 
 若操作导致设备变砖/损坏，本人概不负责且不接受任何投诉。不提供终端用户技术支持，不教授adb安装或基础命令执行等入门知识。
 
-### <ins>Windows用户专备步骤</ins>:
+## 操作指南
+
+本指南仅适用于Windows设备，仅提供给已掌握基本终端命令、ADB或fastboot的高级用户使用。需预先安装Android Platform Tools (含ADB等工具)
+
+### 前期步骤
 
 请先完成以下操作：
 
@@ -17,7 +17,7 @@
 3. 验证adb可用性，执行`adb shell getprop ro.boot.slot_suffix`
 4. 记录输出结果（应为"_a"或"_b"）
 5. 前往[releases](https://github.com/Sikz1218/Sony_android_walkman_A105/raw/refs/heads/main/uuu.exe)页面下载相关文件
-6. 将`uuu.exe`放入工作目录，执行`uuu`验证工具可用性
+6. 将所有文件放入工作目录，执行`uuu`验证工具可用性
 
 命令输出结果将作为执行`uuu`命令时的分区后缀参考
 
@@ -26,29 +26,23 @@
 此操作将清除所有用户数据
 1. 在开发者选项中启用OEM解锁和ADB调试
 2. 执行`adb reboot bootloader`进入fastboot模式
-3. 在fastboot模式（SONY logo界面）执行：
-    - Mac/Linux: `fastboot oem unlock`
-    - Windows: `uuu FB: oem unlock`
+3. 在fastboot模式（SONY logo界面）执行：`uuu FB: oem unlock`
 4. 执行后设备会进入假死状态，实际正在进行用户分区擦除（约需500秒）
-5. 完成后执行重启命令：
-   - Mac/Linux: `fastboot reboot`
-   - Windows: `uuu FB: reboot`
+5. 完成后执行重启命令：`uuu FB: reboot`
 
 ### 禁用AVB
 
 使用自定义内核需执行此步骤。通过以下命令刷写空白vbmeta文件禁用AVB：
-- Mac/Linux: `fastboot --disable-verity --disable-verification flash vbmeta blank_vbmeta.img`
-- Windows(_a): `uuu FB: flash vbmeta_a blank_vbmeta.img`
-- Windows(_b): `uuu FB: flash vbmeta_b blank_vbmeta.img`
+- (若当前槽位为_a): `uuu FB: flash vbmeta_a blank_vbmeta.img`
+- (若当前槽位为_b): `uuu FB: flash vbmeta_b blank_vbmeta.img`
 
 首次启动将进入bootloop，随后进入恢复模式提示系统启动失败。此时需选择恢复出厂设置选项（使用音量键导航，电源键确认）。重置后系统应正常启动
 
 ### 内核
 
-安装apatch后修补boot.img，将修补好的boot文件移动至工作目录，进入fastboot后执行：
-- Mac/Linux: `fastboot flash boot 你修补的boot文件名.img`
-- Windows(_a): `uuu FB: flash boot_a 你修补的boot文件名.img`
-- Windows(_b): `uuu FB: flash boot_b 你修补的boot文件名.img`
+安装apatch.apk并使用apatch修补boot.img，将修补好的boot文件移动至工作目录，进入fastboot后执行：
+- (若当前槽位为_a): `uuu FB: flash boot_a 你修补的boot文件名.img`
+- (若当前槽位为_b): `uuu FB: flash boot_b 你修补的boot文件名.img`
 
 ## 技术发现
 
