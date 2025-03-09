@@ -15,7 +15,7 @@
 2. 将Walkman连接至Windows电脑
 3. 验证adb可用性，执行`adb shell getprop ro.boot.slot_suffix`
 4. 记录输出结果（应为"_a"或"_b"）
-5. 前往[releases](https://github.com/Sikz1218/Sony_android_walkman_A105/raw/refs/heads/main/uuu.exe)页面下载相关文件
+5. 前往[releases](https://github.com/Sikz1218/unlock-and-root_android_walkman_A100-series/releases)页面下载相关文件
 6. 将所有文件放入工作目录，执行`uuu`验证工具可用性
 
 命令输出结果将作为执行`uuu`命令时的分区后缀参考
